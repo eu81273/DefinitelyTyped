@@ -10,6 +10,7 @@
 //                 Dmitry Motovilov <https://github.com/funthing>
 //                 Oleg Repin <https://github.com/iamolegga>
 //                 Ting-Wai To <https://github.com/tingwai-to>
+//                 Jaeha Ahn <https://github.com/eu81273>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -149,9 +150,11 @@ declare namespace IORedis {
         lpop(key: KeyType, callback: (err: Error, res: string) => void): void;
         lpop(key: KeyType): Promise<string>;
 
-        brpop(...keys: KeyType[]): any;
+        brpop(keys: KeyType | KeyType[], timeout: number, callback: (err: Error, res: any) => void): void;
+        brpop(keys: KeyType | KeyType[], timeout: number): Promise<any>;
 
-        blpop(...keys: KeyType[]): any;
+        blpop(keys: KeyType | KeyType[], timeout: number, callback: (err: Error, res: any) => void): void;
+        blpop(keys: KeyType | KeyType[], timeout: number): Promise<any>;
 
         brpoplpush(source: string, destination: string, timeout: number, callback: (err: Error, res: any) => void): void;
         brpoplpush(source: string, destination: string, timeout: number): Promise<any>;
